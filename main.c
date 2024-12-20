@@ -14,7 +14,7 @@ void readChar(struct Lexer *l);
 
 struct Lexer *newLexer(char* input);
 
-void startRepl();
+int startRepl();
 
 int main()
 {
@@ -31,7 +31,7 @@ int main()
 } 
 
 
-void startRepl()
+int startRepl()
 {
     char userInput[100];
 
@@ -41,7 +41,7 @@ void startRepl()
 
         if (fgets(userInput, sizeof(userInput), stdin) == NULL)
         {
-	        
+            return 1;
         }
         newLexer(userInput);
     }
